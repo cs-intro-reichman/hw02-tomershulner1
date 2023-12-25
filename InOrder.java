@@ -4,6 +4,11 @@
  */
 public class InOrder {
 	public static void main (String[] args) {
-		//// Write your code here
+		int first_num = Math.random() * 10;
+		String output = first_num + " ";
+		int last_num =  Math.random() * 10;
+		while (last_num >= first_num) {
+			output += ""
+		}
 	}
 }
