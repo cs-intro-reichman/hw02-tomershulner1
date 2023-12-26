@@ -37,7 +37,7 @@ public class OneOfEachStats1 {
 			}	
 		}
 		double average = all_kids / (double) times;
-		System.out.println("\nAverage: " + average + " children to get at least on of each gender.");
+		System.out.println("\nAverage: " + average + " children to get at least one of each gender.");
 		System.out.println("Number of families with 2 children: " + families_with_2);
 		System.out.println("Number of families with 3 children: " + families_with_3);
 		System.out.println("Number of families with 4 or more children: " + families_with_4_or_more);

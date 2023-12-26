@@ -4,11 +4,16 @@
  */
 public class InOrder {
 	public static void main (String[] args) {
-		int first_num = Math.random() * 10;
-		String output = first_num + " ";
-		int last_num =  Math.random() * 10;
-		while (last_num >= first_num) {
-			output += ""
+		int first_num = (int)(Math.random() * 10);
+		System.out.print(first_num + " ");
+		int second_num = (int)(Math.random() * 10);
+		if (second_num >= first_num) {
+			do {
+				System.out.print(second_num + " ");
+				first_num = second_num;
+				second_num = (int)(Math.random() * 10);
+			}
+			while (second_num >= first_num);
 		}
 	}
 }
