@@ -15,15 +15,56 @@ public class OneOfEachStats {
 		// Initailizes a random numbers generator with the given seed value
         Random generator = new Random(seed);  
 		
-		//// In the previous version of this program, you used a statement like:
-		//// double rnd = Math.random();
-		//// Where "rnd" is the variable that stores the generated random value.
-		//// In this version of the program, replace this statement with:
-		//// double rnd = generator.nextDouble();
-		//// This statement will generate a random value in the range [0,1),
-		//// just like you had in the previous version, except that the 
-		//// randomization will be based on the given seed.
-		//// This is the only change that you have to do in the program.
+		int times = Integer.parseInt(args[0]);
+		int all_kids = 0;
+		int families_with_2 = 0;
+		int families_with_3 = 0;
+		int families_with_4_or_more = 0;
+		for (int i = 0; i < times; i++) {
+			Boolean have_boy = false;
+			Boolean have_girl = false;
+			int family_kids = 0;
+			while (!have_boy || !have_girl) {
+				double chance = generator.nextDouble();
+				if (chance > 0.5) {
+					have_girl = true;
+				}
+				else {
+					have_boy = true;
+				}
+				family_kids += 1;
+				all_kids += 1;
+			}
+			switch (family_kids) {
+				case 2: families_with_2 += 1;
+						break;
+				case 3: families_with_3 += 1;
+						break;
+				default: families_with_4_or_more += 1;
+						 break;
+
+			}	
+		}
+		double average = all_kids / (double) times;
+		System.out.println("\nAverage: " + average + " children to get at least on of each gender");
+		System.out.println("Number of families with 2 children: " + families_with_2);
+		System.out.println("Number of families with 3 children: " + families_with_3);
+		System.out.println("Number of families with 4 or more children: " + families_with_4_or_more);
+		
+		int max = Math.max(families_with_2, Math.max(families_with_3, families_with_4_or_more));
+		String max_to_print;
+		if (max == families_with_2) {
+			max_to_print = "2";
+		}
+		else {
+			if (max == families_with_3) {
+				max_to_print = "3";
+			}
+			else {
+				max_to_print = "4 or more";
+			}
+		}
+		System.out.println("The most common number of children is " + max_to_print);
 		    
 	}
 }
